@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB1BF24E-FD6E-478A-936A-F75AE8CC7C8B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuanLyXeBus</RootNamespace>
+    <AssemblyName>QuanLyXeBus</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=7.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.5.1\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.5.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.7.5.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.7.5.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.8.0.4\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\ChiTietDiemDanh_BLL.cs" />
+    <Compile Include="BLL\ChiTietHocSinh_BLL.cs" />
+    <Compile Include="BLL\ChiTietLoTrinh_BLL.cs" />
+    <Compile Include="BLL\DiemDanhTaiXe_BLL.cs" />
+    <Compile Include="BLL\DiemDanh_BLL.cs" />
+    <Compile Include="BLL\DiemDung_BLL.cs" />
+    <Compile Include="BLL\HocSinh_BLL.cs" />
+    <Compile Include="BLL\LoTrinh_BLL.cs" />
+    <Compile Include="BLL\PhuHuynh_BLL.cs" />
+    <Compile Include="BLL\QuanTriVien_BLL.cs" />
+    <Compile Include="BLL\QuenMatKhau_BLL.cs" />
+    <Compile Include="BLL\TaiKhoan_BLL.cs" />
+    <Compile Include="BLL\TaiXe_BLL.cs" />
+    <Compile Include="BLL\ThongKe_BLL.cs" />
+    <Compile Include="BLL\XeBus_BLL.cs" />
+    <Compile Include="DAL\ChiTietDiemDanh_DAL.cs" />
+    <Compile Include="DAL\ChiTietHocSinh_DAL.cs" />
+    <Compile Include="DAL\ChiTietLoTrinh_DAL.cs" />
+    <Compile Include="DAL\DataConnect.cs" />
+    <Compile Include="DAL\DiemDanhTaiXe_DAL.cs" />
+    <Compile Include="DAL\DiemDanh_DAL.cs" />
+    <Compile Include="DAL\DiemDung_DAL.cs" />
+    <Compile Include="DAL\HocSinh_DAL.cs" />
+    <Compile Include="DAL\LoTrinh_DAL.cs" />
+    <Compile Include="DAL\PhuHuynh_DAL.cs" />
+    <Compile Include="DAL\QuanTriVien_DAL.cs" />
+    <Compile Include="DAL\QuenMatKhau_DAL.cs" />
+    <Compile Include="DAL\TaiKhoan_DAL.cs" />
+    <Compile Include="DAL\TaiXe_DAL.cs" />
+    <Compile Include="DAL\ThongKe_DAL.cs" />
+    <Compile Include="DAL\XeBus_DAL.cs" />
+    <Compile Include="GUI\frm_ALL_OTP_QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_ALL_OTP_QuenMatKhau.Designer.cs">
+      <DependentUpon>frm_ALL_OTP_QuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_DanhSachHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_DanhSachHocSinh.Designer.cs">
+      <DependentUpon>frm_DanhSachHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLCTHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLCTHS.Designer.cs">
+      <DependentUpon>frm_QTV_QLCTHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLHS.Designer.cs">
+      <DependentUpon>frm_QTV_QLHS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLNV.Designer.cs">
+      <DependentUpon>frm_QTV_QLNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_TKTX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_TKTX.Designer.cs">
+      <DependentUpon>frm_QTV_TKTX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_TX_DiemDanhCaLam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_TX_DiemDanhCaLam.Designer.cs">
+      <DependentUpon>frm_TX_DiemDanhCaLam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CaLamTaiXe.cs" />
+    <Compile Include="Model\ChiTietDanhSachHocSinh.cs" />
+    <Compile Include="Model\ChiTietDiemDanh.cs" />
+    <Compile Include="Model\ChiTietDiemDanhVe.cs" />
+    <Compile Include="Model\ChiTietHocSinhDiemDung.cs" />
+    <Compile Include="Model\ChiTietLoTrinhXe.cs" />
+    <Compile Include="Model\ChucVu.cs" />
+    <Compile Include="Model\DiemDanh.cs" />
+    <Compile Include="Model\DiemDanhTaiXe.cs" />
+    <Compile Include="Model\DiemDung.cs" />
+    <Compile Include="Model\HocSinh.cs" />
+    <Compile Include="Model\HopDongXeBus.cs" />
+    <Compile Include="Model\LoaiTaiKhoan.cs" />
+    <Compile Include="Model\Lop.cs" />
+    <Compile Include="Model\LoTrinh.cs" />
+    <Compile Include="Model\PhuHuynh.cs" />
+    <Compile Include="Model\QuanTriVien.cs" />
+    <Compile Include="Model\TaiKhoan.cs" />
+    <Compile Include="Model\TaiXe.cs" />
+    <Compile Include="Model\XeBus.cs" />
+    <Compile Include="RJControls\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\frm_DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_DoiMatKhau.Designer.cs">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_PH_XemLoTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_PH_XemLoTrinh.Designer.cs">
+      <DependentUpon>frm_PH_XemLoTrinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QLXEBUS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QLXEBUS.Designer.cs">
+      <DependentUpon>frm_QLXEBUS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLDD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLDD.Designer.cs">
+      <DependentUpon>frm_QTV_QLDD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLLT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_QLLT.Designer.cs">
+      <DependentUpon>frm_QTV_QLLT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_XEBUS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_XEBUS.Designer.cs">
+      <DependentUpon>frm_QTV_XEBUS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_XTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QTV_XTK.Designer.cs">
+      <DependentUpon>frm_QTV_XTK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QVT_TKPH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QVT_TKPH.Designer.cs">
+      <DependentUpon>frm_QVT_TKPH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_TaiXe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_TaiXe.Designer.cs">
+      <DependentUpon>frm_TaiXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_QuanTriVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_QuanTriVien.Designer.cs">
+      <DependentUpon>frm_QuanTriVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_DangNhap.Designer.cs">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_PhuHuynh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_PhuHuynh.Designer.cs">
+      <DependentUpon>frm_PhuHuynh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_TX_DiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_TX_DiemDanh.Designer.cs">
+      <DependentUpon>frm_TX_DiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frm_TX_XemLoTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frm_TX_XemLoTrinh.Designer.cs">
+      <DependentUpon>frm_TX_XemLoTrinh.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\frm_ALL_OTP_QuenMatKhau.resx">
+      <DependentUpon>frm_ALL_OTP_QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_DanhSachHocSinh.resx">
+      <DependentUpon>frm_DanhSachHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_QLCTHS.resx">
+      <DependentUpon>frm_QTV_QLCTHS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_QLNV.resx">
+      <DependentUpon>frm_QTV_QLNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_TKTX.resx">
+      <DependentUpon>frm_QTV_TKTX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_TX_DiemDanhCaLam.resx">
+      <DependentUpon>frm_TX_DiemDanhCaLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\frm_DoiMatKhau.resx">
+      <DependentUpon>frm_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_PH_XemLoTrinh.resx">
+      <DependentUpon>frm_PH_XemLoTrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QLXEBUS.resx">
+      <DependentUpon>frm_QLXEBUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_QLDD.resx">
+      <DependentUpon>frm_QTV_QLDD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_QLLT.resx">
+      <DependentUpon>frm_QTV_QLLT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_XEBUS.resx">
+      <DependentUpon>frm_QTV_XEBUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QTV_XTK.resx">
+      <DependentUpon>frm_QTV_XTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QVT_TKPH.resx">
+      <DependentUpon>frm_QVT_TKPH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_TaiXe.resx">
+      <DependentUpon>frm_TaiXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_QuanTriVien.resx">
+      <DependentUpon>frm_QuanTriVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_DangNhap.resx">
+      <DependentUpon>frm_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_PhuHuynh.resx">
+      <DependentUpon>frm_PhuHuynh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_TX_DiemDanh.resx">
+      <DependentUpon>frm_TX_DiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frm_TX_XemLoTrinh.resx">
+      <DependentUpon>frm_TX_XemLoTrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eys_c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
